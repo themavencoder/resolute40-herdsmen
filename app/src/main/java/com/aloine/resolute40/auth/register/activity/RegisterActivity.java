@@ -39,7 +39,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterContract.View {
-    private EditText mEtName, mEtPhone, mEtCommunity, mEtPin, mEtProductType;
+    private EditText mEtName, mEtPhone, mEtCommunity, mEtPin, mEtLivestockPopulation;
     private Spinner mSpState;
     private TextView mTvSignIn;
     private Button mButtonReg;
@@ -108,13 +108,13 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
                 String community = mEtCommunity.getText().toString();
                 String phone_number = mEtPhone.getText().toString();
                 String pin = mEtPin.getText().toString();
-                String productType = mEtProductType.getText().toString();
-                mPresenter.insertData(full_name, phone_number,community, pin,productType);
+                String livestockpop = mEtLivestockPopulation.getText().toString();
+                mPresenter.insertData(full_name, phone_number,community, pin,livestockpop);
 
                 if (mPresenter.verifyEntries() && !mSpState.getSelectedItem().toString().equals("Select state")) {
                     dialogFragment.setCancelable(false);
                     dialogFragment.show(getSupportFragmentManager(), "my_dialog");
-                     model = new RegisterModel(full_name, mSpState.getSelectedItem().toString(),phone_number,community, productType,pin, "null", "Farmer" );
+                     model = new RegisterModel(full_name, mSpState.getSelectedItem().toString(),phone_number,community, "null",pin, livestockpop, "Herdsman" );
 
                     sendUserData(model);
 
@@ -161,7 +161,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
         mEtPhone = findViewById(R.id.edit_phone_number);
         mEtCommunity = findViewById(R.id.edit_community);
         mEtPin = findViewById(R.id.edit_pin);
-        mEtProductType = findViewById(R.id.edit_product_type);
+        mEtLivestockPopulation = findViewById(R.id.edit_livestock_population);
         mTvSignIn = findViewById(R.id.text_sign_in);
         mButtonReg = findViewById(R.id.button_register);
         mCoordinatorLayout = findViewById(R.id.coordinatorLayout);

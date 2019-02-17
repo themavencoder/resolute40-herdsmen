@@ -112,12 +112,12 @@ android:fitsSystemWindows="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Product type"
+                android:text="Livestock population"
                 android:textColor="#267187"
                 android:textSize="12sp" />
 
             <EditText
-                android:id="@+id/edit_product_type"
+                android:id="@+id/edit_livestock_population"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="8dp"
