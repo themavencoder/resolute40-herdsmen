@@ -127,13 +127,20 @@ public class DashboardActivity extends AppCompatActivity {
 
                         switch (finalI) {
                             case 0:
+                                getLocation();
                                 panicDialog.setCancelable(false);
                                 panicDialog.show(getSupportFragmentManager(), "my_dialog");
                                 AppInstance app = AppInstance.getInstance();
                                 Keys keys = new Keys(app.getClient_token(), app.getSession_token());
-                                PanicDetails panicDetails = new PanicDetails(app.getUsername(), "A panic has been sent", "True", 0.0f, 0.0f);
+                                if (d_lat == 0.0 && d_long == 0.0) {
+                                    Toast.makeText(DashboardActivity.this, "Unable to get location, try again", Toast.LENGTH_SHORT).show();
+                                    panicDialog.dismiss();
+                                    return;
+                                }
+                                PanicDetails panicDetails = new PanicDetails(app.getUsername(), "A panic has been sent", "True", d_lat, d_long);
                                 PanicData panicData = new PanicData(keys, panicDetails, app.getUsertype());
                                 panicNetworkRequest(panicData);
+
                                 break;
                             case 1:
                                 Toast.makeText(DashboardActivity.this, "Still in production", Toast.LENGTH_SHORT).show();
