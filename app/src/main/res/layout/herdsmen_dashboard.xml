@@ -101,7 +101,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:src="@drawable/ic_placeholder"
+                            android:src="@drawable/ic_panic"
                             android:layout_gravity="center_horizontal"
                             android:layout_width="100dp"
                             android:layout_height="60dp" />
@@ -146,7 +146,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:src="@drawable/ic_map_farm"
+                            android:src="@drawable/ic_hospital"
                             android:layout_gravity="center_horizontal"
                             android:layout_width="100dp"
                             android:layout_height="60dp" />
